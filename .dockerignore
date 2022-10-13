@@ -1,0 +1,13 @@
+.git
+.makefile
+build
+cmd
+internal
+.dockerignore
+.gitignore
+Dockerfile
+LICENSE
+Makefile
+README.md
+go.mod
+go.sum

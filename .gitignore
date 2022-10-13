@@ -1,0 +1,6 @@
+/bin/*
+!/bin/.keep
+/build/*
+!/build/.keep
+/data/*
+!/data/.keep
