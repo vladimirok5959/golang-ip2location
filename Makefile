@@ -1,4 +1,4 @@
-VERSION="1.0.0"
+VERSION="1.0.1"
 DOCKER_IMG_NAME := golang-ip2location
 CURRENT_DIR := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 DATA_DIR := ${CURRENT_DIR}/data
