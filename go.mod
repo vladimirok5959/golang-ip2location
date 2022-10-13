@@ -8,6 +8,7 @@ require (
 	github.com/onsi/gomega v1.19.0
 	github.com/vladimirok5959/golang-ctrlc v1.0.4
 	github.com/vladimirok5959/golang-utils v1.3.6
+	github.com/vladimirok5959/golang-worker v1.0.0
 )
 
 require (

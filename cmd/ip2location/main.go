@@ -7,6 +7,7 @@ import (
 	"github.com/vladimirok5959/golang-ip2location/internal/client"
 	"github.com/vladimirok5959/golang-ip2location/internal/consts"
 	"github.com/vladimirok5959/golang-ip2location/internal/server"
+	"github.com/vladimirok5959/golang-ip2location/internal/workers/worker_reloader"
 	"github.com/vladimirok5959/golang-utils/utils/http/logger"
 	"github.com/vladimirok5959/golang-utils/utils/penv"
 )
@@ -40,7 +41,10 @@ func main() {
 			return ctrlc.MakeError(shutdown, ctrlc.AppError(err), cl)
 		}
 
+		workerReloader := worker_reloader.New(cl)
+
 		return &[]ctrlc.Iface{
+			workerReloader,
 			sv,
 			cl,
 		}
