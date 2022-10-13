@@ -8,6 +8,8 @@ import (
 	"github.com/vladimirok5959/golang-ip2location/internal/consts"
 )
 
+const dbFileName = "IP2LOCATION-LITE-DB3.BIN"
+
 type Client struct {
 	ctx  context.Context
 	base *ip2location.DB
@@ -21,7 +23,7 @@ type Result struct {
 }
 
 func New(ctx context.Context, shutdown context.CancelFunc) (*Client, error) {
-	f, err := consts.DataPathFile("IP2LOCATION-LITE-DB3.BIN")
+	f, err := consts.DataPathFile(dbFileName)
 	if err != nil {
 		return nil, err
 	}
@@ -55,7 +57,7 @@ func (c *Client) IP2Location(ctx context.Context, ip string) (*Result, error) {
 }
 
 func (c *Client) ReloadDatabase(ctx context.Context) error {
-	f, err := consts.DataPathFile("IP2LOCATION-LITE-DB3.BIN")
+	f, err := consts.DataPathFile(dbFileName)
 	if err != nil {
 		return err
 	}
