@@ -54,6 +54,23 @@ func (c *Client) IP2Location(ctx context.Context, ip string) (*Result, error) {
 	}, err
 }
 
+func (c *Client) ReloadDatabase(ctx context.Context) error {
+	f, err := consts.DataPathFile("IP2LOCATION-LITE-DB3.BIN")
+	if err != nil {
+		return err
+	}
+
+	b, err := ip2location.OpenDB(f)
+	if err != nil {
+		return err
+	}
+
+	c.base.Close()
+	c.base = b
+
+	return nil
+}
+
 func (c *Client) Shutdown(ctx context.Context) error {
 	c.base.Close()
 	return nil
