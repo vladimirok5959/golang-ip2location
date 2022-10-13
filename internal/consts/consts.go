@@ -7,6 +7,7 @@ import (
 )
 
 const DataDirectory = "data"
+const DBFileName = "IP2LOCATION-LITE-DB3.BIN"
 
 var Config struct {
 	AccessLogFile string `description:"Access log file"`
