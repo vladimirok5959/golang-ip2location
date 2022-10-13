@@ -5,22 +5,20 @@ import (
 	"time"
 
 	"github.com/vladimirok5959/golang-ip2location/internal/client"
+	"github.com/vladimirok5959/golang-ip2location/internal/consts"
 	"github.com/vladimirok5959/golang-utils/utils/http/logger"
 	"github.com/vladimirok5959/golang-worker/worker"
 )
 
-var Delay = 60 * time.Minute
-
 func New(cl *client.Client) *worker.Worker {
-	time.Sleep(1000 * time.Millisecond)
 	return worker.New(func(ctx context.Context, w *worker.Worker, o *[]worker.Iface) {
-		if cl, ok := (*o)[0].(*client.Client); ok {
-			Run(ctx, cl)
-		}
 		select {
 		case <-ctx.Done():
-		case <-time.After(Delay):
 			return
+		case <-time.After(time.Duration(consts.Config.DbUpdateTime) * time.Minute):
+		}
+		if cl, ok := (*o)[0].(*client.Client); ok {
+			Run(ctx, cl)
 		}
 	}, &[]worker.Iface{
 		cl,
@@ -36,8 +34,8 @@ func Run(ctx context.Context, cl *client.Client) {
 	}
 
 	if err == nil {
-		logger.LogInfo("worker reloader: done\n")
+		logger.LogInfo("worker reloader: reloading done\n")
 	} else {
-		logger.LogInfo("worker reloader: done with error\n")
+		logger.LogInfo("worker reloader: reloading done with errors\n")
 	}
 }

@@ -21,6 +21,7 @@ debug:
 	make all
 	./bin/ip2location \
 		-data_dir ${DATA_DIR} \
+		-db_update_time 60 \
 		-deployment development \
 		-host 0.0.0.0 \
 		-port 8080 \
@@ -32,6 +33,7 @@ docker-test:
 		--network host \
 		--name ${DOCKER_IMG_NAME}-test \
 		-e ENV_DATA_DIR="/app/data" \
+		-e ENV_DB_UPDATE_TIME="60" \
 		-e ENV_DEPLOYMENT="deployment" \
 		-e ENV_HOST="127.0.0.1" \
 		-e ENV_PORT="8080" \

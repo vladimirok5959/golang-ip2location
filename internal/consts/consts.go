@@ -12,6 +12,7 @@ const DBFileName = "IP2LOCATION-LITE-DB3.BIN"
 var Config struct {
 	AccessLogFile string `description:"Access log file"`
 	DataDir       string `description:"Application data directory"`
+	DbUpdateTime  int64  `default:"60" description:"Delay in minutes between database reloading"`
 	Deployment    string `default:"development" description:"Deployment type"`
 	ErrorLogFile  string `description:"Error log file"`
 	Host          string `default:"127.0.0.1" description:"Web server IP"`
