@@ -64,6 +64,7 @@ docker run -d \
     --restart=always \
     --name my-container-name \
     -e ENV_DATA_DIR="/app/data" \
+    -e ENV_DB_UPDATE_TIME="60" \
     -e ENV_DEPLOYMENT="deployment" \
     -e ENV_HOST="127.0.0.1" \
     -e ENV_PORT="8080" \
