@@ -12,6 +12,8 @@ Usage of ./ip2location:
     Or ENV_ACCESS_LOG_FILE: Access log file
   -data_dir string
     Or ENV_DATA_DIR: Application data directory
+  -db_update_time int
+    Or ENV_DB_UPDATE_TIME: Delay in minutes between database reloading (default 60)
   -deployment string
     Or ENV_DEPLOYMENT: Deployment type (default "development")
   -error_log_file string
