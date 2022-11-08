@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"html/template"
 	"net/http"
+	"strings"
 
 	"github.com/vladimirok5959/golang-ip2location/internal/consts"
 	"github.com/vladimirok5959/golang-ip2location/internal/server/handler/base"
@@ -28,6 +29,11 @@ func (h Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	}
 
 	additional.ClientIP = helpers.ClientIP(r)
+
+	ip := strings.Trim(r.FormValue("ip"), " ")
+	if ip != "" && len([]rune(ip)) <= 15 {
+		additional.ClientIP = ip
+	}
 
 	if h.Client != nil {
 		if res, err := h.Client.IP2Location(r.Context(), additional.ClientIP); err == nil {
