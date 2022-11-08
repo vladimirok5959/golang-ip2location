@@ -48,7 +48,7 @@ Content-Length: 107
 
 ## DB auto update
 
-Right now, application is not designed for automatically refreshing database. Application just load pre-downloaded dabase file, load it once on startup and used it. So you must care about refreshing databse by yourself by using for example crontab and included `db-update.sh` script. Example for crontab file:
+Right now, application is not designed for automatically refreshing database. Application just load pre-downloaded dabase file, load it on startup and reread database every 60 minutes (interval can be changed by `ENV_DB_UPDATE_TIME` variable), but database file need to update manually. So you must care about refreshing databse by yourself by using for example crontab and included `db-update.sh` script. Example for crontab file:
 
 ```sh
 0    2    1    *    *    root    /var/ip2location/db-update.sh "your token" "/var/ip2location/data/IP2LOCATION-LITE-DB3.BIN" > /dev/null 2>&1
