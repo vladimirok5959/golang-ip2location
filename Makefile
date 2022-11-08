@@ -10,13 +10,18 @@ include .makefile/minimal.makefile
 include .makefile/build.makefile
 include .makefile/docker.makefile
 
+.assets.makefile:
+	curl -fsSL -o $@ https://raw.githubusercontent.com/vladimirok5959/assets/main/assets.makefile
+
+include .assets.makefile
+
 test:
 	go test `go list ./... \
 		| grep -v cmd/ip2location \
 		| grep -v internal/consts \
 		| grep -v internal/server/web`
 
-debug:
+debug: assets
 	@-rm ./bin/ip2location
 	make all
 	./bin/ip2location \

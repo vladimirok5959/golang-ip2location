@@ -42,6 +42,9 @@ var _ = Describe("Server", func() {
 						"/api/v1/app/health",
 						"/api/v1/app/status",
 						"/api/v1/ip2location/127.0.0.1",
+
+						// Assets
+						"/styles.css",
 					}
 
 					for _, route := range routes {

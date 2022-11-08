@@ -4,3 +4,5 @@
 !/build/.keep
 /data/*
 !/data/.keep
+.*.makefile
+assets.sh

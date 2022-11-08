@@ -11,6 +11,7 @@ import (
 	"github.com/vladimirok5959/golang-ip2location/internal/server/handler/api/v1/v1_ip2location"
 	"github.com/vladimirok5959/golang-ip2location/internal/server/handler/base"
 	"github.com/vladimirok5959/golang-ip2location/internal/server/handler/page/page_index"
+	"github.com/vladimirok5959/golang-ip2location/internal/server/web"
 	"github.com/vladimirok5959/golang-utils/utils/http/apiserv"
 	"github.com/vladimirok5959/golang-utils/utils/http/helpers"
 )
@@ -30,6 +31,9 @@ func NewMux(ctx context.Context, shutdown context.CancelFunc, client *client.Cli
 	mux.Get("/api/v1/app/health", v1_app_health.Handler{Handler: handler})
 	mux.Get("/api/v1/app/status", helpers.HandleAppStatus())
 	mux.Get("/api/v1/ip2location/{s}", v1_ip2location.Handler{Handler: handler})
+
+	// Assets
+	mux.Get("/styles.css", helpers.HandleTextCss(web.StylesCss))
 
 	return mux
 }

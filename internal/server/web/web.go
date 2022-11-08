@@ -7,4 +7,7 @@ import (
 var (
 	//go:embed index.html
 	IndexHtml string
+
+	//go:embed styles.css
+	StylesCss string
 )
