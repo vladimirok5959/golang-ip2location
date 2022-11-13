@@ -26,7 +26,7 @@ func NewMux(ctx context.Context, shutdown context.CancelFunc, client *client.Cli
 	}
 
 	// Pages
-	mux.Get("/", page_index.Handler{Handler: handler})
+	mux.Get("/", servlimit.ReqPerSecond(page_index.Handler{Handler: handler}, consts.Config.LimitRequests))
 
 	// API
 	mux.Get("/api/v1/app/health", v1_app_health.Handler{Handler: handler})
