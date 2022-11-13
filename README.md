@@ -20,6 +20,8 @@ Usage of ./ip2location:
     Or ENV_ERROR_LOG_FILE: Error log file
   -host string
     Or ENV_HOST: Web server IP (default "127.0.0.1")
+  -limit_requests int
+    Or ENV_LIMIT_REQUESTS: Requests per second per one IP (default 5)
   -port string
     Or ENV_PORT: Web server port (default "8080")
   -web_url string
