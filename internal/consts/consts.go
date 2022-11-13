@@ -6,6 +6,9 @@ import (
 	"strings"
 )
 
+const AppVersion = "1.0.3"
+const AssetsVersion = 2
+
 const DataDirectory = "data"
 const DBFileName = "IP2LOCATION-LITE-DB3.BIN"
 

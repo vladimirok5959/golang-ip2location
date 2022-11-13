@@ -14,9 +14,11 @@ type Handler struct {
 }
 
 type ServerData struct {
-	Additional interface{}
-	URL        string
-	WebURL     string
+	Additional    interface{}
+	AppVersion    string
+	AssetsVersion int
+	URL           string
+	WebURL        string
 }
 
 func (h Handler) FuncMap(w http.ResponseWriter, r *http.Request) template.FuncMap {

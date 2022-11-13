@@ -19,8 +19,10 @@ type Handler struct {
 
 func (h Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	data := &base.ServerData{
-		URL:    r.URL.Path,
-		WebURL: consts.Config.WebURL,
+		AppVersion:    consts.AppVersion,
+		AssetsVersion: consts.AssetsVersion,
+		URL:           r.URL.Path,
+		WebURL:        consts.Config.WebURL,
 	}
 
 	var additional struct {
@@ -37,7 +39,7 @@ func (h Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
 	if h.Client != nil {
 		if res, err := h.Client.IP2Location(r.Context(), additional.ClientIP); err == nil {
-			if j, err := json.Marshal(res); err == nil {
+			if j, err := json.MarshalIndent(res, "<br>", "&nbsp;&nbsp;"); err == nil {
 				additional.GeoIPData = template.HTML(string(j))
 			}
 		}

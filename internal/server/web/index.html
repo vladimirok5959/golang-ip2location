@@ -2,19 +2,60 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
+		<meta name="theme-color" content="#007bff" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>ip2location</title>
-		<link rel="stylesheet" href="/styles.css?v=1" />
+		<link rel="stylesheet" href="/styles.css?v={{$.Data.AssetsVersion}}" />
 	</head>
 	<body>
-		<div class="wrapper">
-			<h1><a href="/">ip2location</a></h1>
-			<h2>{{$.Data.Additional.ClientIP}}</h2>
-			<h2>{{$.Data.Additional.GeoIPData}}</h2>
-			<form action="/" method="get">
-				<input class="form-control" type="text" name="ip" value="{{$.Data.Additional.ClientIP}}" />
-				<button class="btn blue" type="submit">Check</button>
-			</form>
+		<div class="v-center">
+			<div class="v-center-row">
+				<header>
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-12">
+								<div class="header">
+									<h1><a href="/">ip2location</a></h1>
+									<h2>{{$.Data.Additional.ClientIP}}</h2>
+								</div>
+							</div>
+						</div>
+					</div>
+				</header>
+				<main>
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-12">
+								<div class="card">
+									<h2>{{$.Data.Additional.GeoIPData}}</h2>
+									<hr />
+									<form action="/" method="get">
+										<div class="row">
+											<div class="col-12 col-sm-7 col-md-7 col-lg-7 col-xl-7">
+												<input class="form-control" type="text" name="ip" value="{{$.Data.Additional.ClientIP}}" />
+											</div>
+											<div class="col-12 col-sm-5 col-md-5 col-lg-5 col-xl-5">
+												<button class="btn blue" type="submit">Check</button>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</main>
+				<footer>
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-12">
+								<div class="footer">
+									v{{$.Data.AppVersion}}
+								</div>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
 		</div>
 	</body>
 </html>
