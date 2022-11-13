@@ -14,6 +14,7 @@ import (
 	"github.com/vladimirok5959/golang-ip2location/internal/server/web"
 	"github.com/vladimirok5959/golang-utils/utils/http/apiserv"
 	"github.com/vladimirok5959/golang-utils/utils/http/helpers"
+	"github.com/vladimirok5959/golang-utils/utils/http/servlimit"
 )
 
 func NewMux(ctx context.Context, shutdown context.CancelFunc, client *client.Client) *apiserv.ServeMux {
@@ -30,7 +31,7 @@ func NewMux(ctx context.Context, shutdown context.CancelFunc, client *client.Cli
 	// API
 	mux.Get("/api/v1/app/health", v1_app_health.Handler{Handler: handler})
 	mux.Get("/api/v1/app/status", helpers.HandleAppStatus())
-	mux.Get("/api/v1/ip2location/{s}", v1_ip2location.Handler{Handler: handler})
+	mux.Get("/api/v1/ip2location/{s}", servlimit.ReqPerSecond(v1_ip2location.Handler{Handler: handler}, consts.Config.LimitRequests))
 
 	// Assets
 	mux.Get("/styles.css", helpers.HandleTextCss(web.StylesCss))

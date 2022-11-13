@@ -16,7 +16,7 @@ var Config struct {
 	Deployment    string `default:"development" description:"Deployment type"`
 	ErrorLogFile  string `description:"Error log file"`
 	Host          string `default:"127.0.0.1" description:"Web server IP"`
-	LimitRequests int64  `default:"5" description:"Requests per second per one IP"`
+	LimitRequests int    `default:"5" description:"Requests per second per one IP"`
 	Port          string `default:"8080" description:"Web server port"`
 	WebURL        string `default:"http://localhost:8080/" description:"Web server home URL"`
 }
