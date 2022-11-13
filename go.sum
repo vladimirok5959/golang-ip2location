@@ -43,8 +43,8 @@ github.com/vladimirok5959/golang-ctrlc v1.0.4 h1:paARfY0AsWqR/LDcRZ0CNfzIDW1LwKB
 github.com/vladimirok5959/golang-ctrlc v1.0.4/go.mod h1:yX6w0Ke3YILU+g5h2v7Ww0PXj80/Y2ehGXYneQIDE+0=
 github.com/vladimirok5959/golang-server-sessions v1.0.9 h1:oGj3jfpIo5PtWojeGDexDtTmaaZtSY/vH2PcwZIqWNI=
 github.com/vladimirok5959/golang-server-sessions v1.0.9/go.mod h1:w0JRthleTg5D4lY32iczfuUfKCXpbgUiLXHhIUFyY4o=
-github.com/vladimirok5959/golang-utils v1.3.6 h1:PmS//Bd1qIFHNeEhzuQBRZgeOpMMFAzmjaB8WCVXjuI=
-github.com/vladimirok5959/golang-utils v1.3.6/go.mod h1:IwOGU0ErnuHJhSOvS3MuOJfbuI2G7VZY3EXRe44fD18=
+github.com/vladimirok5959/golang-utils v1.3.9 h1:NH4GT/ZFfb9B72opr0N3R2IAFXw6r3x0jpmdHKybqjs=
+github.com/vladimirok5959/golang-utils v1.3.9/go.mod h1:IwOGU0ErnuHJhSOvS3MuOJfbuI2G7VZY3EXRe44fD18=
 github.com/vladimirok5959/golang-worker v1.0.0 h1:Qu29qWnpy0eXn4dKMd5mEjH+by1o7JWErvcIkMhNQ50=
 github.com/vladimirok5959/golang-worker v1.0.0/go.mod h1:WQitGjRYwCuS1/AoOQvHHbvYXCqR+FSzFW0LsunkBy4=
 github.com/yuin/goldmark v1.2.1/go.mod h1:3hX8gzYuyVAZsxl0MRgGTJEmQBFcNTphYh9decYSb74=

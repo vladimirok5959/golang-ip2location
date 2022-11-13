@@ -7,7 +7,7 @@ require (
 	github.com/onsi/ginkgo v1.16.5
 	github.com/onsi/gomega v1.19.0
 	github.com/vladimirok5959/golang-ctrlc v1.0.4
-	github.com/vladimirok5959/golang-utils v1.3.6
+	github.com/vladimirok5959/golang-utils v1.3.9
 	github.com/vladimirok5959/golang-worker v1.0.0
 )
 
